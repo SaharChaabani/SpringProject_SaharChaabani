@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -26,6 +27,8 @@ public class Personne  implements Serializable {
     @Enumerated (EnumType.STRING)
     private Gender gender ;
 
+    @ManyToMany
+    private Set<Etudiant> etudiants;
 
 
 }
