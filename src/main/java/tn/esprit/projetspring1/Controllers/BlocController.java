@@ -1,6 +1,7 @@
 package tn.esprit.projetspring1.Controllers;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.projetspring1.Entities.Bloc;
@@ -13,6 +14,8 @@ import java.util.List;
 @RequestMapping("/bloc")
 
 public class BlocController {
+    @Autowired
+
     IBlocService iBlocService;
 
 
