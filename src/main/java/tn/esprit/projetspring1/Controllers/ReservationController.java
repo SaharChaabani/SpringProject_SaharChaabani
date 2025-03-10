@@ -8,6 +8,7 @@ import tn.esprit.projetspring1.Entities.Reservation;
 import tn.esprit.projetspring1.Services.IReservationService;
 
 import java.util.List;
+import java.util.Date;
 
 @RestController
 @AllArgsConstructor
@@ -32,4 +33,8 @@ public class ReservationController {
         return iReservationService.retrieveReservation(idReservation);
     }
 
+    @GetMapping("/reservations/{anneeUniversitaire}/{nomUniversite}")
+    public List<Reservation> getReservationsParAnneeUniversitaire(@PathVariable Date anneeUniversitaire, @PathVariable String nomUniversite) {
+        return iReservationService.getReservationParAnneeUniversitaireEtNomUniversite(anneeUniversitaire, nomUniversite);
+    }
 }

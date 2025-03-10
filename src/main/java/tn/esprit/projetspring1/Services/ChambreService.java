@@ -3,6 +3,7 @@ package tn.esprit.projetspring1.Services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.projetspring1.Entities.Chambre;
+import tn.esprit.projetspring1.Entities.TypeChambre;
 import tn.esprit.projetspring1.Repository.IChambreRepository;
 
 import java.util.List;
@@ -32,5 +33,14 @@ public class ChambreService implements IChambreService {
     @Override
     public Chambre retrieveChambre(long idChambre) {
         return iChambreRepository.findById(idChambre).orElse(null);
+    }
+    @Override
+    public List<Chambre> getChambresNonReserveParNomUniversiteEtTypeChambre(String nomUniversite, TypeChambre type) {
+        return iChambreRepository.findChambresNonReservees(nomUniversite, type);
+    }
+
+    @Override
+    public List<Chambre> getChambresParBlocEtType(long idBloc, TypeChambre typeC) {
+        return iChambreRepository.findByBlocIdBlocAndTypeC(idBloc, typeC);
     }
 }
