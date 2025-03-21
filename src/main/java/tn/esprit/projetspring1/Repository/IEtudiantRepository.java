@@ -8,4 +8,6 @@ import tn.esprit.projetspring1.Entities.Etudiant;
 @Repository
 
 public interface IEtudiantRepository extends JpaRepository<Etudiant,Long> {
+    Etudiant findByCin(Long cin);
+
 }

@@ -3,6 +3,7 @@ package tn.esprit.projetspring1.Controllers;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.projetspring1.Entities.Foyer;
 import tn.esprit.projetspring1.Entities.Universite;
 import tn.esprit.projetspring1.Services.IUniversiteService;
 
@@ -39,6 +40,17 @@ public class UniversiteController {
             @PathVariable long idFoyer,
             @PathVariable String nomUniversite) {
         return iUniversiteService.affecterFoyerAUniversite(idFoyer, nomUniversite);
+    }
+
+
+    @PutMapping("/desaffecterFoyer/{idUniversite}")
+    public Universite desaffecterFoyerAUniversite(@PathVariable long idUniversite) {
+        return iUniversiteService.desaffecterFoyerAUniversite(idUniversite);
+    }
+
+    @PostMapping("/ajouter-foyer/{idUniversite}")
+    public Universite ajouterFoyerEtAffecterAUniversite(@RequestBody Foyer foyer, @PathVariable long idUniversite) {
+        return iUniversiteService.ajouterFoyerEtAffecterAUniversite(foyer, idUniversite);
     }
 
 

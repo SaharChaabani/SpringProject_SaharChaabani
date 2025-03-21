@@ -13,4 +13,6 @@ public interface IChambreService {
     List<Chambre> getChambresNonReserveParNomUniversiteEtTypeChambre(String nomUniversite, TypeChambre type);
 
     List<Chambre> getChambresParBlocEtType(long idBloc, TypeChambre typeC);
+
+
 }

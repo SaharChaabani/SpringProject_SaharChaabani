@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import tn.esprit.projetspring1.Entities.Bloc;
 import tn.esprit.projetspring1.Entities.Chambre;
 import tn.esprit.projetspring1.Entities.TypeChambre;
 
@@ -18,4 +19,8 @@ public interface IChambreRepository extends JpaRepository<Chambre,Long> {
     List<Chambre> findChambresParBlocEtTypeJPQL(long idBloc, TypeChambre typeC);
 
     List<Chambre> findByBlocIdBlocAndTypeC(long idBloc, TypeChambre typeC);
+
+    List<Chambre> findByNumeroChambreIn(List<Long> numChambres);
+    public List<Chambre> findByBloc(Bloc bloc);
+
 }
